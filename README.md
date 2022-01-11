@@ -45,7 +45,7 @@ This is an image of what the project looks like.
 
 
 ## Collaborators
-- Pao Her(aka p-her)
-- Tracy Favro(aka favro3)
+- Pao Her (aka p-her)
+- Tracy Favro (aka favro3)
 - Christian Sopoco (aka cjsopoco)
 - Michael Brown (aka randomguy1234)
