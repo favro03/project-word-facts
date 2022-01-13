@@ -1,7 +1,14 @@
+:root{
+    --primary: #c2cccc;
+    --secondary: #7A9E9F;
+    --tertiary: #374a4a;
+}
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 a {
@@ -16,6 +23,9 @@ a:focus {
 h3 {
     font-weight: 100;
 }
+h2{
+    margin: 20px;
+}
 
 /* LAYOUT CSS */
 .pure-img-responsive {
@@ -28,18 +38,21 @@ h3 {
 }
 
 .header {
+    color: black;
     text-align: center;
-    top: auto;
-    margin: 3em auto;
+    background-image: linear-gradient(45deg, #c2cccc 0%, #7A9E9F 52%, #374a4a 90%);
+    background-size: cover;
+    padding: 10px 0;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .sidebar {
-    background: rgb(61, 79, 93);
-    color: #fff;
+    color: black;
 }
 
-.brand-title,
-.brand-tagline {
+.brand-title, .brand-tagline {
     margin: 0;
 }
 .brand-title {
@@ -49,7 +62,17 @@ h3 {
     font-weight: 300;
     color: rgb(176, 202, 219);
 }
+form{
+    border-bottom: 2px solid;
+    margin-bottom: 25px;
+}
 
+.quotes {
+    background: var(--tertiary);
+    color: white;
+    font-style: italic;
+    height:350px;
+}
 .nav-list {
     margin: 0;
     padding: 0;
@@ -73,6 +96,10 @@ h3 {
 .nav-item a:focus {
     border: 2px solid rgb(61, 146, 201);
     text-decoration: none;
+}
+
+.word-card{
+    border: 2px solid var(--tertiary);
 }
 
 .content-subhead {
@@ -118,7 +145,6 @@ h3 {
     padding: 0.3em 1em;
     color: #fff;
     background: #999;
-    font-size: 80%;
 }
     .post-category-design {
         background: #5aba59;
@@ -162,14 +188,38 @@ h3 {
     }
 
     .header {
-        margin: 80% 2em 0;
-        text-align: right;
+    color: black;
+    text-align: center;
+    background-image: linear-gradient(45deg, #c2cccc 0%, #c2cccc 60%, #374a4a 90%);
+    background-size: cover;
+    padding: 25px 0;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+    }
+    
+    .quotes {
+        background: var(--tertiary);
+        color: white;
+        font-style: italic;
+        
+    }
+    .word-info{
+        background: var(--secondary);
+        margin-bottom: 10px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 1.3rem;
+        padding: 6px 5px;
+        border: white solid; 
+        height: 200px
     }
 
     .sidebar {
-        position: fixed;
+        position: flex;
         top: 0;
-        bottom: 0;
+        height: 800px;
     }
 
     .footer {
