@@ -1,3 +1,15 @@
+var userFormEl = document.querySelector("#user-form");
+var wordInputEl = document.querySelector("#word");
+
+var formSubmitHandler = function(event){
+    event.preventDefault();
+    
+    var word = wordInputEl.value.trim();
+
+    console.log(word)
+}
+userFormEl.addEventListener("submit", formSubmitHandler);
+
 var populateSavedWords = function() {
        // Get array from local storage
        let wordsLocalStorage = JSON.parse(localStorage.getItem("savedWords"));
