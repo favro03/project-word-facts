@@ -66,8 +66,11 @@ form{
     border-bottom: 2px solid;
     margin-bottom: 25px;
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
+=======
+>>>>>>> 66b02ea2efba4b07b1d93f1fbbdf0f1d8df64148
     padding: 2.5%;
 }
 .form-input {
@@ -98,7 +101,10 @@ form{
     transform: translate(0, 0);
     box-shadow: 2px 2px var(--secondary);
   }
+<<<<<<< HEAD
 >>>>>>> d0cc12e24b07157fd35593632159187f7b8388d0
+=======
+>>>>>>> 66b02ea2efba4b07b1d93f1fbbdf0f1d8df64148
 
 .quotes {
     background: var(--tertiary);
