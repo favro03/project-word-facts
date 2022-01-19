@@ -40,7 +40,7 @@ This is an image of what the project looks like.
 
 ### 3rd Party Libraries Used
 - Free Dictionary Api
-- Random Famous Quotes Api
+- Quotes Api
 - Pure CSS Framework 
 
 
