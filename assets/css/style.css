@@ -104,7 +104,11 @@ form{
     background: var(--tertiary);
     color: white;
     font-style: italic;
-    height:350px;
+    padding:200px;
+    font-size: 30px;
+    text-align: center;
+    margin: auto;
+ 
 }
 .nav-list {
     margin: 0;
@@ -249,7 +253,10 @@ form{
         background: var(--tertiary);
         color: white;
         font-style: italic;
-        
+        padding:200px;
+        font-size: 30px;
+        text-align: center;
+        margin: auto;
     }
     .word-info{
         background: var(--secondary);

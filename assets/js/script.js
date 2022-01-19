@@ -22,21 +22,20 @@ var locationStorage = function(word){
 
 
 //function to handle button click
-
 var formSubmitHandler = function(event){
     event.preventDefault();
     var word = wordInputEl.value.trim();
+
     fetchAPI(word)
-    
+
     locationStorage(word);
     wordInputEl.value="";
-   
 
-
-    console.log(word)
     getWordFacts(word);
-
+    console.log(word)
 }
+
+
 
 
 //function to fetch the free dictionary api and get the info needed
@@ -79,23 +78,7 @@ var getWordFacts = function(input)
                 //print pronunciation to screen
                 wordPronunciationEl.textContent = "Pronunciation: "+ data[0].phonetic;
                     
-                //console.log("Pronunciation: "+ data[0].phonetic);
-                    
-
-                /*
-                //failed attempt to loop through api to get all definitions
-                for (var i = 0; i < data.length; i++)
-                {
-                    for (var j = 0; j < data.meanings.length; j++)
-                    {
-                        for (var k = 0; k < data.meanings.definitions.length; k++)
-                        {
-                            console.log(data[i].meanings[j].definitions[k].definition);
-                        }
-                    }
-                }
-                */
-
+            
             });
         }
         
@@ -107,12 +90,6 @@ var getWordFacts = function(input)
     });
         
 };
-
-userFormEl.addEventListener("submit", formSubmitHandler);
-
-
-
-
 
 
 function fetchAPI(word){
@@ -155,27 +132,6 @@ function fetchAPI(word){
 
     })
 }
-
-var storageArr = [];
-
-var locationStorage = function(word){
-    storageArr = JSON.parse(window.localStorage.getItem("word")) || [];
-    var value = word;
-    if(storageArr.indexOf(value)== -1){
-        storageArr.push(value);
-    }
-    
-    localStorage.setItem("word", JSON.stringify(storageArr));
-};
-
-var formSubmitHandler = function(event){
-    event.preventDefault();
-    var word = wordInputEl.value.trim();
-    locationStorage(word);
-    wordInputEl.value="";
-    console.log(word)
-}
-
 userFormEl.addEventListener("submit", formSubmitHandler);
 
 
