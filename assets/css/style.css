@@ -63,6 +63,7 @@ h2{
     color: rgb(176, 202, 219);
 }
 
+
 form{
     border-bottom: 2px solid;
     margin-bottom: 25px;
@@ -77,6 +78,7 @@ form{
     border-radius: var(--border-radius);
     display: block;
   }
+
 
   .btn{
     font-size: 1.3rem;
@@ -269,4 +271,3 @@ form{
     .footer {
         text-align: center;
     }
-

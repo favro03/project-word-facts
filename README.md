@@ -21,7 +21,11 @@ the user's input.
 ### Goals
 - When a user enters a word, a set of facts should be displayed on the screen as well as the word
 entered as well as the famous quotes containing the word. The facts in this case are definition,
+
+synonyms, syllables, and pronunciation.
+
 synonyms, and pronunciation.
+
 
 - When a word is entered, it can be saved and referenced in the future.
 
@@ -39,7 +43,7 @@ This is an image of what the project looks like.
 
 
 ### 3rd Party Libraries Used
-- Words Api
+- Free Dictionary Api
 - Random Famous Quotes Api
 - Pure CSS Framework 
 
