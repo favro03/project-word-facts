@@ -4,19 +4,54 @@ var searchResultEl = document.querySelector("#search-result");
 var wordDefinitionEl = document.querySelector("#definition");
 var wordSynonymEl = document.querySelector("#synonyms");
 var wordPronunciationEl = document.querySelector("#pronunciation");
+var historyContainer = document.querySelector("#historyContainer");
 
 
 
 
 var storageArr = [];
+//loads search history on page load
+window.onload = function(){
+    if(localStorage.getItem("word") === null){
+        historyContainer.textContent = "No Words Searched";
+    }
+    else {
+        var retrieveData = localStorage.getItem("word");
+        storageArr = JSON.parse(retrieveData);
+        displaySearchHistory(storageArr);
+    }
+};
+
+
+
+var displaySearchHistory=function(storageArr){ 
+    var uniqueArr = [...new Set(storageArr)];
+    storageArr = uniqueArr;
+
+    for(var i = 0; i<storageArr.length; i++){
+        var historyBtn = document.createElement("input");
+        historyBtn.classList = "btn-history flex-row justify-space-between align-center";
+        historyBtn.type = "button";
+        historyBtn.name = "button" + i;
+        historyBtn.value = storageArr[i];
+        fetchAPI(historyBtn.value);
+        console.log(historyBtn.value);
+        historyBtn.id = i;
+        historyBtn.setAttribute("onClick","fetchAPI()");
+        console.log(historyBtn.value);
+        document.getElementById('historyContainer').appendChild(historyBtn);
+    };
+};
 
 var locationStorage = function(word){
+    historyContainer.textContent="";
+    
     storageArr = JSON.parse(window.localStorage.getItem("word")) || [];
     var value = word;
     if(storageArr.indexOf(value)== -1){
         storageArr.push(value);
     }
-    
+    displaySearchHistory(storageArr);
     localStorage.setItem("word", JSON.stringify(storageArr));
 };
 

@@ -258,6 +258,26 @@ form{
         text-align: center;
         margin: auto;
     }
+    .btn-history{
+        font-size: 1.3rem;
+        text-decoration:none;
+        padding: 6px 5px;
+        width: 100%;
+        display: block;
+        margin: 5px 0;
+        border-radius: var(--border-radius);
+        color: var(--primary);
+        border: none;
+        outline: none;
+        background-color: gray;
+        transform: translate(-1px, -1px);
+      }
+      .btn-history:hover{
+        color: var(--primary);
+        background-color: var(--tertiary);
+        transform: translate(0, 0);
+        box-shadow: 2px 2px var(--secondary);
+      }
     .word-info{
         background: var(--secondary);
         margin-bottom: 10px;
