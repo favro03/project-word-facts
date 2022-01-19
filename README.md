@@ -33,10 +33,11 @@ the user.
 
 ## Images
 - This location has an image of what the webpage looks like before a word search.
-assets/images/WordFacts_DefaultState
+![Default State](./assets/images/WordFacts_DefaultState)
+
 
 - This location has an image of what the webpage looks like after a word search.
-assets/images/WordFacts_SearchResult
+![Search Result](./assets/images/WordFacts_SearchResult)
 
 
 ### 3rd Party Libraries Used
