@@ -20,26 +20,23 @@ the user's input.
 
 ### Goals
 - When a user enters a word, a set of facts should be displayed on the screen as well as the word
-entered as well as the famous quotes containing the word. The facts in this case are definition,
-
-synonyms, syllables, and pronunciation.
-
+entered as well as a quote containing the word. The facts in this case are definition,
 synonyms, and pronunciation.
-
 
 - When a word is entered, it can be saved and referenced in the future.
 
 - When a prevously entered word is selected, the facts related to that word should be available to
 the user.
 
-- When the famous quotes are displayed to the screen, a limit of 5 quotes should be on the page.
-
 - When the page is refreshed, the previously entered words are visible to the user.
 
 
 ## Images
-This is an image of what the project looks like.
-(insert snapshot here)
+- This location has an image of what the webpage looks like before a word search.
+assets/images/WordFacts_DefaultState
+
+- This location has an image of what the webpage looks like after a word search.
+assets/images/WordFacts_SearchResult
 
 
 ### 3rd Party Libraries Used

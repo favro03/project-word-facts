@@ -63,7 +63,7 @@ h2{
     color: rgb(176, 202, 219);
 }
 
-
+/*Form starts here*/
 form{
     border-bottom: 2px solid;
     margin-bottom: 25px;
@@ -99,6 +99,9 @@ form{
     transform: translate(0, 0);
     box-shadow: 2px 2px var(--secondary);
   }
+
+/*Form ends here*/  
+
 
 .quotes {
     background: var(--tertiary);

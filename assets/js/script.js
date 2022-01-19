@@ -7,6 +7,7 @@ var wordPronunciationEl = document.querySelector("#pronunciation");
 var historyContainer = document.querySelector("#historyContainer");
 
 var storageArr = [];
+
 //loads search history on page load
 window.onload = function(){
     
@@ -22,6 +23,8 @@ window.onload = function(){
     
     
 };
+
+//function to create button for the already searched words
 var getButtonVar = function(){
     var currentWord = getButtonVar.caller.arguments[0].target.id;
     var historyWord = (document.getElementById(currentWord).value);
@@ -30,10 +33,12 @@ var getButtonVar = function(){
     
 }
 
+//function to show previously searched words
 var displaySearchHistory=function(storageArr){ 
     var uniqueArr = [...new Set(storageArr)];
     storageArr = uniqueArr;
 
+    //set up the button for the history tab
     for(var i = 0; i<storageArr.length; i++){
         var historyBtn = document.createElement("input");
         historyBtn.classList = "btn-history flex-row justify-space-between align-center";
@@ -46,6 +51,7 @@ var displaySearchHistory=function(storageArr){
     };
 };
 
+//function to store searched words
 var locationStorage = function(word){
     historyContainer.textContent="";
     
@@ -111,7 +117,7 @@ var getWordFacts = function(input)
         
 };
 
-
+//function to get the quote api
 function fetchAPI(word){
 
     fetch("https://type.fit/api/quotes")
@@ -148,6 +154,7 @@ function fetchAPI(word){
     
     })
 }
+
 //function to handle button click
 var formSubmitHandler = function(event){
     event.preventDefault();
