@@ -107,5 +107,6 @@ var formSubmitHandler = function(event){
     wordInputEl.value="";
     console.log(word)
 }
+
 userFormEl.addEventListener("submit", formSubmitHandler);
 
