@@ -6,12 +6,10 @@ var wordSynonymEl = document.querySelector("#synonyms");
 var wordPronunciationEl = document.querySelector("#pronunciation");
 var historyContainer = document.querySelector("#historyContainer");
 
-
-
-
 var storageArr = [];
 //loads search history on page load
 window.onload = function(){
+    
     if(localStorage.getItem("word") === null){
         historyContainer.textContent = "No Words Searched";
     }
@@ -19,13 +17,17 @@ window.onload = function(){
         var retrieveData = localStorage.getItem("word");
         storageArr = JSON.parse(retrieveData);
         displaySearchHistory(storageArr);
+        
     }
+    
+    
 };
 var getButtonVar = function(){
     var currentWord = getButtonVar.caller.arguments[0].target.id;
     var historyWord = (document.getElementById(currentWord).value);
     fetchAPI(historyWord);
     getWordFacts(historyWord);
+    
 }
 
 var displaySearchHistory=function(storageArr){ 
@@ -37,12 +39,9 @@ var displaySearchHistory=function(storageArr){
         historyBtn.classList = "btn-history flex-row justify-space-between align-center";
         historyBtn.type = "button";
         historyBtn.name = "button" + i;
-        historyBtn.value = storageArr[i];
-        fetchAPI(historyBtn.value);
-        console.log(historyBtn.value);
+        historyBtn.value = storageArr[i];        
         historyBtn.id = i;
         historyBtn.setAttribute("onClick","getButtonVar()");
-        console.log(historyBtn.value);
         document.getElementById('historyContainer').appendChild(historyBtn);
     };
 };
@@ -58,24 +57,6 @@ var locationStorage = function(word){
     displaySearchHistory(storageArr);
     localStorage.setItem("word", JSON.stringify(storageArr));
 };
-
-
-//function to handle button click
-var formSubmitHandler = function(event){
-    event.preventDefault();
-    var word = wordInputEl.value.trim();
-
-    fetchAPI(word)
-
-    locationStorage(word);
-    wordInputEl.value="";
-
-    getWordFacts(word);
-    console.log(word)
-}
-
-
-
 
 //function to fetch the free dictionary api and get the info needed
 var getWordFacts = function(input)
@@ -137,40 +118,50 @@ function fetchAPI(word){
     .then(response => response.json())
     .then(function(data){
         var arr = [];
+        for(var count = 0; count < data.length; count++){
 
-            for(var count = 0; count < data.length; count++){
+            var flag = false;
 
-                var flag = false;
+            var str = data[count].text;
 
-                var str = data[count].text;
-    
-                    arr = str.split(" ");
-                for(var i = 0; i < arr.length; i++){
-                    if(arr[i] === word){
-                        
-                       $(".quotes").text(str)
-                        flag = true;
-                        
-                    }
+                arr = str.split(" ");
+            for(var i = 0; i < arr.length; i++){
+                if(arr[i] === word){
+                    
+                   $(".quotes").text(str)
+                    flag = true;
                     
                 }
-
-                if(flag){
-                    break;
-                }
-
-                if(count == (data.length -1)){
-
-                    $(".quotes").text('No Quote')
-                }
-
-             
-    
+                
             }
 
+            if(flag){
+                break;
+            }
 
+            if(count == (data.length -1)){
+
+                $(".quotes").text('No Quote')
+            }
+
+        }
+    
     })
 }
+//function to handle button click
+var formSubmitHandler = function(event){
+    event.preventDefault();
+    var word = wordInputEl.value.trim();
+
+    fetchAPI(word)
+
+    locationStorage(word);
+    wordInputEl.value="";
+
+    getWordFacts(word);
+    console.log(word)
+}
+
 userFormEl.addEventListener("submit", formSubmitHandler);
 
 
