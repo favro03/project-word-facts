@@ -6,21 +6,6 @@ var wordSynonymEl = document.querySelector("#synonyms");
 var wordPronunciationEl = document.querySelector("#pronunciation");
 
 
-
-
-var storageArr = [];
-
-var locationStorage = function(word){
-    storageArr = JSON.parse(window.localStorage.getItem("word")) || [];
-    var value = word;
-    if(storageArr.indexOf(value)== -1){
-        storageArr.push(value);
-    }
-    
-    localStorage.setItem("word", JSON.stringify(storageArr));
-};
-
-
 //function to handle button click
 
 var formSubmitHandler = function(event){
@@ -168,13 +153,35 @@ var locationStorage = function(word){
     localStorage.setItem("word", JSON.stringify(storageArr));
 };
 
-var formSubmitHandler = function(event){
+    var searchedWord = localStorage.getItem("word")
+    if (searchedWord === null) {
+    searchedWord = [];
+    }   else {
+    searchedWord = json.parse(searchedWord);
+    }
+    searchedWord.push(word);
+
+    var searchedWord = json.stringify(searchedWord);
+
+     //creates list items from cities saved in localstorage
+     for (let i = 0; i < searchedWord.length; i++) {
+        var list = document.createElement("li");
+        list.setAttribute("form-input");
+        list.textContent = searchedWord[i];
+        wordList.appendChild(list);
+      }
+
+
+    var formSubmitHandler = function(event){
     event.preventDefault();
     var word = wordInputEl.value.trim();
     locationStorage(word);
     wordInputEl.value="";
     console.log(word)
 }
+
+
+
 
 userFormEl.addEventListener("submit", formSubmitHandler);
 
