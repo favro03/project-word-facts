@@ -21,8 +21,12 @@ window.onload = function(){
         displaySearchHistory(storageArr);
     }
 };
-
-
+var getButtonVar = function(){
+    var currentWord = getButtonVar.caller.arguments[0].target.id;
+    var historyWord = (document.getElementById(currentWord).value);
+    fetchAPI(historyWord);
+    getWordFacts(historyWord);
+}
 
 var displaySearchHistory=function(storageArr){ 
     var uniqueArr = [...new Set(storageArr)];
@@ -37,7 +41,7 @@ var displaySearchHistory=function(storageArr){
         fetchAPI(historyBtn.value);
         console.log(historyBtn.value);
         historyBtn.id = i;
-        historyBtn.setAttribute("onClick","fetchAPI()");
+        historyBtn.setAttribute("onClick","getButtonVar()");
         console.log(historyBtn.value);
         document.getElementById('historyContainer').appendChild(historyBtn);
     };
