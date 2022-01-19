@@ -63,6 +63,23 @@ h2{
     color: rgb(176, 202, 219);
 }
 
+
+form{
+    border-bottom: 2px solid;
+    margin-bottom: 25px;
+    padding: 2.5%;
+}
+.form-input {
+    width: 100%;
+    padding: 3%;
+    margin: 5px 0;
+    font-size: 1.2rem;
+    border: 2px solid var(--light-dark);
+    border-radius: var(--border-radius);
+    display: block;
+  }
+
+
   .btn{
     font-size: 1.3rem;
     text-decoration:none;
@@ -87,7 +104,11 @@ h2{
     background: var(--tertiary);
     color: white;
     font-style: italic;
-    height:350px;
+    padding:200px;
+    font-size: 30px;
+    text-align: center;
+    margin: auto;
+ 
 }
 .nav-list {
     margin: 0;
@@ -232,8 +253,31 @@ h2{
         background: var(--tertiary);
         color: white;
         font-style: italic;
-        
+        padding:200px;
+        font-size: 30px;
+        text-align: center;
+        margin: auto;
     }
+    .btn-history{
+        font-size: 1.3rem;
+        text-decoration:none;
+        padding: 6px 5px;
+        width: 100%;
+        display: block;
+        margin: 5px 0;
+        border-radius: var(--border-radius);
+        color: var(--primary);
+        border: none;
+        outline: none;
+        background-color: gray;
+        transform: translate(-1px, -1px);
+      }
+      .btn-history:hover{
+        color: var(--primary);
+        background-color: var(--tertiary);
+        transform: translate(0, 0);
+        box-shadow: 2px 2px var(--secondary);
+      }
     .word-info{
         background: var(--secondary);
         margin-bottom: 10px;
@@ -254,4 +298,3 @@ h2{
     .footer {
         text-align: center;
     }
-}
