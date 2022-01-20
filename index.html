@@ -14,24 +14,26 @@
         <h1 class="brand-title">Word Facts</h1>
     </header>
     <main>
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p>Unable to connect to the API</p>
+            </div>
+          
+        </div>
         <div class="pure-g">
             <div class="pure-u-1-6 sidebar">
 
                 <form id="user-form" class="pure-form">
-
-
-                
                 <!--form starts here-->
                 <form id="user-form">
 
-                    <input id="word" name="word" class="form-input" type="text" autofocus="true"/>
+                    <input id="word" name="word" class="form-input" type="text" autofocus="true" required/>
                     <button type="submit" class="btn">Search</button>
                 </form>
                 <!--form ends here-->
-                
-
-                
-
                 <div id="historyContainer"></div>
             </div>
             <div class="pure-u-3-4">

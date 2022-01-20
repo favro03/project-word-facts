@@ -5,8 +5,29 @@ var wordDefinitionEl = document.querySelector("#definition");
 var wordSynonymEl = document.querySelector("#synonyms");
 var wordPronunciationEl = document.querySelector("#pronunciation");
 var historyContainer = document.querySelector("#historyContainer");
-
 var storageArr = [];
+// Get the modal
+var modal = document.getElementById("myModal");
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+//Error Handeling
+var errorHandeling = function(){
+    // When the user clicks on the button, open the modal
+    modal.style.display = "block";
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+        modal.style.display = "none";
+        }
+    }
+};
 
 //loads search history on page load
 window.onload = function(){
@@ -18,10 +39,7 @@ window.onload = function(){
         var retrieveData = localStorage.getItem("word");
         storageArr = JSON.parse(retrieveData);
         displaySearchHistory(storageArr);
-        
     }
-    
-    
 };
 
 //function to create button for the already searched words
@@ -31,7 +49,7 @@ var getButtonVar = function(){
     fetchAPI(historyWord);
     getWordFacts(historyWord);
     
-}
+};
 
 //function to show previously searched words
 var displaySearchHistory=function(storageArr){ 
@@ -108,52 +126,48 @@ var getWordFacts = function(input)
             });
         }
         
-        else
-        {
-            console.log("error");
+        else{
+            errorHandeling();
         }
-    
-    });
-        
+    });  
 };
 
 //function to get the quote api
 function fetchAPI(word){
+    fetch("https://type.fit/api/quotes").then(function(response){
+        if (response.ok){
+            response.json().then(function(data){
+                var arr = [];
+                for(var count = 0; count < data.length; count++){
 
-    fetch("https://type.fit/api/quotes")
-    .then(response => response.json())
-    .then(function(data){
-        var arr = [];
-        for(var count = 0; count < data.length; count++){
-
-            var flag = false;
-
-            var str = data[count].text;
-
-                arr = str.split(" ");
-            for(var i = 0; i < arr.length; i++){
-                if(arr[i] === word){
-                    
-                   $(".quotes").text(str)
-                    flag = true;
-                    
+                    var flag = false;
+        
+                    var str = data[count].text;
+        
+                        arr = str.split(" ");
+                    for(var i = 0; i < arr.length; i++){
+                        if(arr[i] === word){
+                            
+                           $(".quotes").text(str)
+                            flag = true;
+                        }
+                    }
+                    if(flag){
+                        break;
+                    }
+                    if(count == (data.length -1)){
+        
+                        $(".quotes").text('No Quote')
+                    }
                 }
-                
-            }
-
-            if(flag){
-                break;
-            }
-
-            if(count == (data.length -1)){
-
-                $(".quotes").text('No Quote')
-            }
-
+            })
         }
-    
+        else{
+            errorHandeling();
+        }
     })
-}
+};
+
 
 //function to handle button click
 var formSubmitHandler = function(event){
@@ -167,8 +181,5 @@ var formSubmitHandler = function(event){
 
     getWordFacts(word);
     console.log(word)
-}
-
+};
 userFormEl.addEventListener("submit", formSubmitHandler);
-
-
